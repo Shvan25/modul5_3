@@ -9,7 +9,6 @@ class Program
         GetName(ref name);
         Console.WriteLine(name);
     }
-
     static void GetName(ref string name)
     {
         Console.WriteLine("Введите имя");
