@@ -1,22 +1,56 @@
 ﻿using System;
 
-class MainClass
+class Program
 {
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
+        var num = 6;
 
-        var arr = new int[] { 1, 2, 3 };
-        var data = 5;
-        BigDataOperation(arr, ref data);
+        var array = GetArrayFromConsole(ref num);
 
-        Console.WriteLine(arr[0]);
+        var sortarray = SortArray(array);
+    }
+    static int[] GetArrayFromConsole(ref int num)
+    {
+        var result = new int[num];
 
+        for (int i = 0; i < result.Length; i++)
+        {
+            Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+            result[i] = int.Parse(Console.ReadLine());
+        }
+
+        for (int i = 0; i < result.Length; i++)
+        {
+            Console.WriteLine(result[i]);
+        }
+
+        return result;
     }
 
-    static void BigDataOperation(in int[] arr, ref int data)
+    static int[] SortArray(int[] array)
     {
-        data = 4;
-        arr[0] = data;
-    }
+        int k = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            for (int j = 0; j < array.Length; j++)
+            {
+                if (array[i] < array[j])
+                {
+                    k = array[i];
+                    array[i] = array[j];
+                    array[j] = k;
+                }
+            }
 
+        }
+        Console.WriteLine("Массив после сортировки:");
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            Console.WriteLine(array[i]);
+        }
+
+        return array;
+    }
 }
