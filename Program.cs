@@ -1,18 +1,22 @@
 ﻿using System;
 
-class Program
+class MainClass
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        string name = "Евгения";
 
-        GetName(ref name);
-        Console.WriteLine(name);
-    }
-    static void GetName(ref string name)
-    {
-        Console.WriteLine("Введите имя");
-        name = Console.ReadLine();
+        var arr = new int[] { 1, 2, 3 };
+        var data = 5;
+        BigDataOperation(arr, ref data);
+
+        Console.WriteLine(arr[0]);
 
     }
+
+    static void BigDataOperation(in int[] arr, ref int data)
+    {
+        data = 4;
+        arr[0] = data;
+    }
+
 }
